@@ -496,7 +496,7 @@
         }
         const menu__body = document.querySelector(".menu__body");
         const burger__container = document.querySelector(".burger__container");
-        dynamicAdaptive([ menu__body ], burger__container, 767.98);
+        dynamicAdaptive([ menu__body ], burger__container, 991.98);
         var aos = __webpack_require__(711);
         if (document.querySelector(".logo")) {
             const logos = document.querySelectorAll(".logo");
@@ -513,7 +513,7 @@
             href: "about.html"
         }, {
             title: "Services",
-            href: "#"
+            href: "services.html"
         }, {
             title: "Packages",
             href: "#"
@@ -607,10 +607,58 @@
             title: "Growth",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
         } ];
-        const value__body = document.querySelector(".value__body");
-        for (let i = 0; i < valueList.length; i++) {
-            const item = valueList[i];
-            value__body.innerHTML += `<div data-aos="zoom-in" class="cart__item"><div class="cart__logotype logotype"><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__1}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__2}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__3}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__4}"></div></div><h3 data-aos="zoom-in" class="cart__title">${item.title}</h3><p data-aos="zoom-in" class="cart__text">${item.text}</p></div>`;
+        if (document.querySelector(".value__body")) {
+            const value__body = document.querySelector(".value__body");
+            for (let i = 0; i < valueList.length; i++) {
+                const item = valueList[i];
+                value__body.innerHTML += `<div data-aos="zoom-in" class="cart__item"><div class="cart__logotype logotype"><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__1}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__2}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__3}"></div><div data-aos="zoom-in" class="logotype__item logotype__${item.logotype__4}"></div></div><h3 data-aos="zoom-in" class="cart__title">${item.title}</h3><p data-aos="zoom-in" class="cart__text">${item.text}</p></div>`;
+            }
+        }
+        const faq__accordion = document.querySelector(".faq__accordion");
+        const faq = [ {
+            question: "Do you guarantee marketing results?",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        }, {
+            question: "Will I pay any fees if I cancel my package?",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        }, {
+            question: "How does the support work?",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        }, {
+            question: "How soon will I have my first results?",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        }, {
+            question: "How big is your marketing team?",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        } ];
+        for (let i = 0; i < faq.length; i++) {
+            const item = faq[i];
+            faq__accordion.innerHTML += `<div class="accordion__item"><div class="accordion__head"><div data-aos="zoom-in-up" class="accordion__title"><span>${i + 1}</span>${item.question}</div><div data-aos="zoom-in-up" class="accordion__icon"></div></div><div class="accordion__content"><p data-aos="zoom-in-up" class="accordion__text">${item.text}</p></div></div>`;
+        }
+        const accordion__items = document.querySelectorAll(".accordion__item");
+        const accordion__content = document.querySelectorAll(".accordion__content");
+        const accordion__head = document.querySelectorAll(".accordion__head");
+        document.querySelectorAll(".accordion__title span");
+        const accordion__icon = document.querySelectorAll(".accordion__icon");
+        const accordion__text = document.querySelectorAll(".accordion__text");
+        let accordionActive = false;
+        for (let i = 0; i < accordion__items.length; i++) {
+            const item = accordion__items[i];
+            item.addEventListener("click", (function(e) {
+                if (!accordion__head[i].classList.contains("_active")) {
+                    accordionActive = true;
+                    accordion__head[i].classList.add("_active");
+                    accordion__content[i].classList.add("_active");
+                    accordion__icon[i].classList.add("_active");
+                    accordion__text[i].classList.add("_active");
+                } else {
+                    accordionActive = false;
+                    accordion__head[i].classList.remove("_active");
+                    accordion__content[i].classList.remove("_active");
+                    accordion__icon[i].classList.remove("_active");
+                    accordion__text[i].classList.remove("_active");
+                }
+            }));
         }
         isWebp();
     })();
