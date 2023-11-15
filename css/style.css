@@ -558,24 +558,6 @@ h6 {
   display: none;
 }
 
-.menu-open span {
-  width: 0;
-}
-
-.menu-open::before {
-  top: calc(50% - 0.0625rem);
-  -webkit-transform: rotate(-45deg) translate(1px);
-      -ms-transform: rotate(-45deg) translate(1px);
-          transform: rotate(-45deg) translate(1px);
-}
-
-.menu-open::after {
-  bottom: calc(50% - 0.0625rem);
-  -webkit-transform: rotate(45deg) translate(1px);
-      -ms-transform: rotate(45deg) translate(1px);
-          transform: rotate(45deg) translate(1px);
-}
-
 ._body-active {
   overflow: hidden;
 }
@@ -597,6 +579,24 @@ h6 {
 ._active-burger {
   top: 0;
   height: 100vh;
+}
+
+.menu-open span {
+  width: 0 !important;
+}
+
+.menu-open::before {
+  top: calc(50% - 0.0625rem) !important;
+  -webkit-transform: rotate(-45deg) translate(1px) !important;
+      -ms-transform: rotate(-45deg) translate(1px) !important;
+          transform: rotate(-45deg) translate(1px) !important;
+}
+
+.menu-open::after {
+  bottom: calc(50% - 0.0625rem) !important;
+  -webkit-transform: rotate(45deg) translate(1px) !important;
+      -ms-transform: rotate(45deg) translate(1px) !important;
+          transform: rotate(45deg) translate(1px) !important;
 }
 
 .footer__content {
