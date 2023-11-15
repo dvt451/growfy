@@ -470,7 +470,9 @@
         function menuBurger() {
             const burgerButton = document.querySelector(".icon-burger");
             const burgerBody = document.querySelector(".burger__body");
+            const header = document.querySelector("header");
             burgerButton.addEventListener("click", (function(e) {
+                header.classList.toggle("_active-burger");
                 burgerButton.classList.toggle("menu-open");
                 burgerBody.classList.toggle("_active-burger");
                 document.body.classList.toggle("_body-active");
@@ -516,7 +518,7 @@
             href: "services.html"
         }, {
             title: "Packages",
-            href: "#"
+            href: "packages.html"
         }, {
             title: "Blogs",
             href: "#"
@@ -633,7 +635,7 @@
         } ];
         for (let i = 0; i < faq.length; i++) {
             const item = faq[i];
-            faq__accordion.innerHTML += `<div class="accordion__item"><div class="accordion__head"><div data-aos="zoom-in-up" class="accordion__title"><span>${i + 1}</span>${item.question}</div><div data-aos="zoom-in-up" class="accordion__icon"></div></div><div class="accordion__content"><p data-aos="zoom-in-up" class="accordion__text">${item.text}</p></div></div>`;
+            faq__accordion.innerHTML += `<div class="accordion__item"><div class="accordion__head"><div data-aos="zoom-in-up" class="accordion__title"><span>${i + 1}.</span>${item.question}</div><div data-aos="zoom-in-up" class="accordion__icon"></div></div><div class="accordion__content"><p data-aos="zoom-in-up" class="accordion__text">${item.text}</p></div></div>`;
         }
         const accordion__items = document.querySelectorAll(".accordion__item");
         const accordion__content = document.querySelectorAll(".accordion__content");
@@ -659,6 +661,19 @@
                     accordion__text[i].classList.remove("_active");
                 }
             }));
+        }
+        const packageItems = document.querySelectorAll(".package-item");
+        for (let i = 0; i < packageItems.length; i++) {
+            const item = packageItems[i];
+            item.onmouseenter = () => {
+                item.style = "transition: all 0.3s;background-color: rgba(129, 129, 139, .15);";
+            };
+            item.onmouseleave = () => {
+                item.style = "transition: all 0.3s";
+                setTimeout((() => {
+                    item.style = "";
+                }), 300);
+            };
         }
         isWebp();
     })();
