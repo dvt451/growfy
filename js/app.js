@@ -521,10 +521,10 @@
             href: "packages.html"
         }, {
             title: "Blogs",
-            href: "#"
+            href: "blogs.html"
         }, {
             title: "Contacts",
-            href: "#"
+            href: "contacts.html"
         } ];
         const menu__list = document.querySelector(".menu__list");
         const footerMenu = document.querySelector(".footer-menu");
@@ -633,7 +633,7 @@
             question: "How big is your marketing team?",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
         } ];
-        for (let i = 0; i < faq.length; i++) {
+        if (faq__accordion) for (let i = 0; i < faq.length; i++) {
             const item = faq[i];
             faq__accordion.innerHTML += `<div class="accordion__item"><div class="accordion__head"><div data-aos="zoom-in-up" class="accordion__title"><span>${i + 1}.</span>${item.question}</div><div data-aos="zoom-in-up" class="accordion__icon"></div></div><div class="accordion__content"><p data-aos="zoom-in-up" class="accordion__text">${item.text}</p></div></div>`;
         }
@@ -674,6 +674,23 @@
                     item.style = "";
                 }), 300);
             };
+        }
+        const menList = document.querySelectorAll(".menu__body .menu__link");
+        for (let i = 0; i < men.length; i++) if (document.querySelector("." + men[i].title.toLowerCase())) menList[i].classList.add("_active");
+        const socialMedias = document.querySelectorAll(".social-medias");
+        const medias = [ "_icon-facebook", "_icon-instagram", "_icon-linkedin", "_icon-twitter", "_icon-youtube" ];
+        for (let i = 0; i < socialMedias.length; i++) {
+            const item = socialMedias[i];
+            for (let ind = 0; ind < medias.length; ind++) {
+                const icon = medias[ind];
+                item.innerHTML += `<li data-aos="zoom-in-up" class="social-medias__items"><a href="#" class="social-medias__link ${icon}"></a></li>`;
+            }
+        }
+        const main = document.querySelectorAll("main");
+        const rollUp = '<a href="#0" class="roll-up"><i class="fa fa-angle-up"></i></a>';
+        for (let i = 0; i < main.length; i++) {
+            const item = main[i];
+            item.innerHTML += rollUp;
         }
         isWebp();
     })();
