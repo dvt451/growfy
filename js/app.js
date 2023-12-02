@@ -686,12 +686,6 @@
                 item.innerHTML += `<li data-aos="zoom-in-up" class="social-medias__items"><a href="#" class="social-medias__link ${icon}"></a></li>`;
             }
         }
-        const main = document.querySelectorAll("main");
-        const rollUp = '<a href="#0" class="roll-up"><i class="fa fa-angle-up"></i></a>';
-        for (let i = 0; i < main.length; i++) {
-            const item = main[i];
-            item.innerHTML += rollUp;
-        }
         isWebp();
     })();
 })();
